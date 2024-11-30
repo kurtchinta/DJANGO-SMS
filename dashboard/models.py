@@ -18,11 +18,11 @@ class Message(models.Model):
 
         if self.score >= 70:
             message_body = (
-                f"Hey! {self.name}, I just want you to know that you are worthy since your score is {self.score}. I love you!"
+                f"Hey! {self.name}, I just want you to know that you are worthy since your score is {self.score}."
             )
         else:
             message_body = (
-                f"Hey! {self.name}, I just want you to know that you are not worthy since your score is {self.score} lol."
+                f"Hey! {self.name}, I just want you to know that you are not worthy since your score is {self.score}."
             )
 
         try:
