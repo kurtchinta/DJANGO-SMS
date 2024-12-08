@@ -13,7 +13,7 @@ class Message(models.Model):
     def save(self, *args, **kwargs):
         # Correct Twilio credentials without trailing commas
         account_sid = 'ACcf46515f1e8daf2dbf0db735f32c1b57'
-        auth_token = '00707947eb8dcb17d49ed6bfc3f90e99'
+        auth_token = 'bbec661c728a300a0a663e3b965238d0'
         client = Client(account_sid, auth_token)
 
         if self.score >= 70:
@@ -30,7 +30,7 @@ class Message(models.Model):
             message = client.messages.create(
                 body=message_body,
                 from_='+16814122387',  # Replace with your Twilio number
-                to='+639489635571'    # Replace with the recipient's number
+                to='+639073042157'    # Replace with the recipient's number
             )
             print(f"Message sent successfully: {message.sid}")
         except Exception as e:

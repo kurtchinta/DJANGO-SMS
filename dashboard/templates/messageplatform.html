@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMS Notification</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f4f8;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center the content vertically */
+        align-items: center; /* Center the content horizontally */
+        min-height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 420px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 25px;
+        font-weight: 600;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: 500;
+        color: #555;
+        margin-bottom: 8px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus,
+      textarea:focus {
+        border-color: #4caf50;
+        outline: none;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 14px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        transform: translateY(2px);
+      }
+
+      p {
+        text-align: left;
+        font-weight: bold;
+        color: #777;
+        font-size: 14px;
+        margin-top: 15px;
+      }
+
+      .success {
+        color: #28a745;
+      }
+
+      .error {
+        color: #e74c3c;
+      }
+
+      .footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0;
+      }
+
+      .footer p {
+        margin: 0;
+        font-size: 14px;
+        color: #fff;
+        text-align: center;
+      }
+
+      .green-text {
+        color: #4caf50; /* Green color */
+      }
+
+      .footer a:hover {
+        color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Score Validator</h1>
+
+      {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+        <p class="success">{{ message }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">{{ form.as_p }}</div>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <p>
+        &copy; 2023 Score Validator. All rights reserved. |
+        <span class="green-text">Group 2</span> |
+        <span class="green-text">SMS_Activity</span>
+      </p>
+    </footer>
+  </body>
+</html>
